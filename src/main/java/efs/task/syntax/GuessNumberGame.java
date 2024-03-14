@@ -48,7 +48,7 @@ public class GuessNumberGame {
             System.out.print(".");
         }
 
-        System.out.print("]\n");
+        System.out.println("]");
     }
 
 
@@ -61,7 +61,7 @@ public class GuessNumberGame {
         int att=1;
         int number;
 
-        while(true)
+        while(att<=maxAttempts)
         {
             printProgressBar(att,maxAttempts-att);
             System.out.println(UsefulConstants.GIVE_ME);
@@ -78,7 +78,7 @@ public class GuessNumberGame {
             if(number==numberToGuess){
                 System.out.println(UsefulConstants.YES);
                 System.out.println(UsefulConstants.CONGRATULATIONS + ", " +att+ " - tyle prób zajęło Ci odgadnięcie liczby "+numberToGuess);
-                break;
+                return;
 
             }else if(number>numberToGuess){
                 System.out.println(UsefulConstants.TO_MUCH);
@@ -86,11 +86,11 @@ public class GuessNumberGame {
                 System.out.println(UsefulConstants.TO_LESS);
             }
 
-            if(att==maxAttempts) {
-                System.out.println(UsefulConstants.UNFORTUNATELY + ", wyczerpałeś limit prób ("+maxAttempts+") do odgadnięcia liczby "+numberToGuess);
-                break;
-            }
             att++;
         }
+
+
+        System.out.println(UsefulConstants.UNFORTUNATELY + ", wyczerpałeś limit prób ("+maxAttempts+") do odgadnięcia liczby "+numberToGuess);
+
     }
 }
